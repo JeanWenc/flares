@@ -1,0 +1,14 @@
+FL_and_Resp_ID;Category1;Category2
+#Resp_ID_1;;
+Dog;Pet;Canine
+Cat;Pet;Feline
+Lion;Wild;Feline
+#Resp_ID_2;;
+Buffalo;Wild;Bovine
+Lion;Wild;Feline
+Wolf;Wild;Canine
+Dog;Pet;Canine
+Cat;Pet;Feline
+#Resp_ID_3;;
+Dog;Pet;Canine
+Cat;Pet;Feline
