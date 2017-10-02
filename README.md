@@ -1,5 +1,5 @@
 # flares
-Free-List Analysis under R Environment using Shiny
+<b>Free-List Analysis under R Environment using Shiny</b>
 Copyright (C) 2017 Jean Wencélius
 
 FLARES is an open-source shiny (RStudio, 2014) application hosted on a server.
