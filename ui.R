@@ -714,5 +714,5 @@ shinyUI(
              )#mainPanel
            )#SideBarPanel
   ),#tabPanel
-  div(HTML("<p align=right style=position:fixed;bottom:0;right:0;font-size:70%;color:gray;background-color:LightGray;> Copyright (C) 2017 Jean Wencélius - GNU License - AGPLv3 </p>"))
+  div(HTML("<div align=right style=margin-bottom:0px;padding-top:0px;padding-bottom:3px;position:fixed;border-top-left-radius:2px;bottom:0;right:0;background-color:LightGray;> <span style=font-size:70%;color:gray;margin-top:0px;margin-right:3px;margin-left:3px;vertical-align:middle;>Copyright (C) 2017 Jean Wencélius - GNU License - AGPLv3 </span></div>"))
 ))
