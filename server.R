@@ -22,28 +22,30 @@
 ########################################################################################################################
 
 ###########Libraries#####
-library(shiny)
 library(ade4)
+library(adegraphics)
 library(ca)
-library(vegan)
-library(reshape2)
-library(DT)
 library(dendextend)
-library(igraph)
 library(data.table)
-library(ggplot2)
+library(DT)
 library(ggdendro)
 library(ggnetwork)
+library(ggplot2)
+library(igraph)
 library(network)
-library(sna)
 library(RColorBrewer)
-library(adegraphics)
+library(readr)
+library(reshape2)
+library(shiny)
+library(sna)
+library(vegan)
 
 ############source functions####
 
 source("scripts/Upload/check_fl_data.R")
 source("scripts/Upload/ANTHROPAC_format.R")
 source("scripts/Upload/check_apac_categories.R")
+source("scripts/Upload/my_read_fn.R")
 
 source("scripts/Normalisation/check_categ_in_norm.R")
 
@@ -87,7 +89,8 @@ session$onSessionEnded(stopApp)
     h1<-TRUE
     apac<-input$input.format.choice
     if(apac=="APAC") h1<-input$header
-    data1=read.csv(inFile$datapath,header=h1,sep=input$sep,quote=input$quote,comment.char = "*",na.strings = c("NA",""))
+    data1<-myReadFn(inFile$datapath,h1,input$sep,input$quote,TRUE)
+    #read.csv(inFile$datapath,header=h1,sep=input$sep,quote=input$quote)
     
     return(check.FL.data(data1,apac,h1))
   })
@@ -98,7 +101,8 @@ session$onSessionEnded(stopApp)
     if(is.null(inFile3))
       return(NULL)
     
-    norm.item1=read.csv(inFile3$datapath,header=input$header3,sep=input$sep3,quote=input$quote3)
+    norm.item1<-myReadFn(inFile3$datapath,input$header3,input$sep3,input$quote3,TRUE)
+    #norm.item1=read.csv(inFile3$datapath,header=input$header3,sep=input$sep3,quote=input$quote3)
     
     if(dim(norm.item1)[2]<2)
       return(data.frame(WARNING="Your data doesn't seem to be in the correct format. Please check your seperator and quote options in the side-panel on the left."))
@@ -317,7 +321,8 @@ session$onSessionEnded(stopApp)
     if(is.null(res1()))  
       return(NULL)
     
-    resp.var.data1=read.csv(inFile2$datapath,header=input$header2,sep=input$sep2,quote=input$quote2,stringsAsFactors = FALSE,na.strings = c("NA",""))
+    #resp.var.data1=read.csv(inFile2$datapath,header=input$header2,sep=input$sep2,quote=input$quote2,stringsAsFactors = FALSE,na.strings = c("NA",""))
+    resp.var.data1<-myReadFn(inFile2$datapath,input$header2,input$sep2,input$quote2,FALSE)
     
     res.temp=check.resp.var.data(resp.var.data1,res1()$mat.cit.abs.pres)
     
