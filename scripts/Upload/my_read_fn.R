@@ -28,7 +28,13 @@ myReadFn<-function(data,header1,sep1,quote1,SaF){
   enc<-guess_encoding(data,n_max = -1,threshold = 0.05)
   if(length(enc)!=0){
     if(length(grep("ISO",x = enc[1,1]))!=0){
-      data1<-read.csv(file=data,header=header1,sep=sep1,quote = quote1,comment.char ="*",na.strings = c("NA",""),stringsAsFactors = SaF,encoding = "latin1")  
+      data1<-read.csv(file=data,header=header1,sep=sep1,quote = quote1,comment.char ="*",na.strings = c("NA",""),stringsAsFactors = SaF,encoding = "latin1")
+      for(j in 1:dim(data1)[2]){
+        data1[,j]<-as.character(data1[,j])
+        for(i in 1:dim(data1)[1]){
+          data1[i,j]<-enc2utf8(data1[i,j])
+        }
+      }
     }
   }
   return(data1)
