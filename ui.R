@@ -23,7 +23,23 @@
 
 shinyUI(
   navbarPage("FLARES - Free List Analysis under R Environment using Shiny",
-  
+  #####################################################################################################################
+  #####Presentation
+  #####################################################################################################################
+    tabPanel("Presentation",
+                      titlePanel("Free-Listing and FLARES"),
+                      sidebarLayout(
+                        sidebarPanel(
+                          "Flares has been developed..."
+                        ),
+                        mainPanel(
+                          tabsetPanel(type="tabs",
+                                      tabPanel("Free-Listing"),
+                                      tabPanel("Other")
+                          )#End tabsetPanel
+                        )#End MainPanel
+                      )# End sidebarLayout
+             ),#End tabPanel  
   #####################################################################################################################
   #####UPLOAD
   #####################################################################################################################
