@@ -59,8 +59,6 @@ source("scripts/Free-list Analysis/Plot_Item_Prox.R")
 source("scripts/Free-list Analysis/fn_best_tree.R")
 source("scripts/Free-list Analysis/plot_dendro.R")
 
-source("scripts/Free-list Analysis/patch_flow.R")
-source("scripts/Free-list Analysis/plot_clust_net.R")
 source("scripts/Free-list Analysis/categ_clustering.R")
 source("scripts/Free-list Analysis/Data_Saturation.R")
 source("scripts/Free-list Analysis/Plot_Data_Saturation.R")
@@ -227,35 +225,6 @@ session$onSessionEnded(stopApp)
     
     categ.clust1<-categ.clustering(res1()$FL.list,norm.type,ls.categories(), resp.var.data1,tree.partition)
     return(categ.clust1)
-  })
-  
-  patch.flow.tab<-reactive({
-    debug=FALSE
-    
-    if(is.null(res1()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    norm.type="None"
-    if(!is.null(norm.item.data()) && names(norm.item.data())[1]!="WARNING" && input$apply.normalization==TRUE) norm.type=input$norm.type
-    
-    resp.var.data1="None"
-    if(!is.null(resp.var.data()) & is.data.frame(resp.var.data())) resp.var.data1<-resp.var.data()
-    
-    tree.partition<-"None"
-    if(!is.null(item.prox.plot())){
-      if(!is.null(input$tree.partition)){
-        if(input$tree.partition==TRUE) tree.partition<-item.prox.plot()$partition
-      }
-    } 
-    
-    min.max1<-"min"
-    if(!is.null(input$min.max)) min.max1<-input$min.max
-    
-    return(withProgress(
-    message="Computing",value=0,{patch.flow(res1()$FL.list,norm.type,ls.categories(), resp.var.data1,tree.partition,min.max1,debug)
-    })
-    )
   })
   
   data.samples2=reactive({
@@ -978,133 +947,6 @@ session$onSessionEnded(stopApp)
       dev.off()
     }
   )
-  
-  #####################TabPanel(ITEM ANALYSES)
-                      ####TabsetPanel(ITEM CATEGORIES ANALAYSES)####
-                          ####TabPAnel (PATCH FLOW)####
-  output$patch.flow.mess1<-renderUI({
-    err.message<-HTML("<b>Analyses will only appear if you upload or use categorical information for your items. You may do so when: </b><ul><li>Uploading a Spreadsheet or ANTHROPAC formatted file.</li><li>Uploading a normalization and categorization table.</li><li>Plotting item-by-item proximity as a dendrogram and ticking the appropriate checkbox in order to use the tree partition as categories for your items. </li></ul>")
-    if(is.null(ls.categories()))
-      return(err.message)
-    if(is.null(categ.clust()))
-      return(err.message)
-    return(HTML("<b>The graph below represents blablabla...</b>"))
-  })
-  
-  output$show.min.max<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    return(radioButtons("min.max",label="Choose method of patch detection",
-                        choices=list("Minimum"="min","Maximum"="max"),
-                        selected="min",inline = T))
-  })
-  
-  output$select.categ.for.netw<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    ls.cat1<-ls.categories()
-    ls.cat1<-ls.cat1[-1]#removes "None"
-    if(length(ls.cat1)>1) ls.cat1<-c("All",ls.cat1)
-      return(selectInput("categ.for.netw",label="Choose item category to plot",
-                        choices=ls.cat1,
-                        multiple = F))
-  })
-  
-  output$select.with.items<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    if(is.null(input$categ.for.netw))
-      return(NULL)
-    if(input$categ.for.netw!="All")
-      return(NULL)
-    return(checkboxInput(inputId = "with.items",label = "Do you wish to display transitional items?",value = FALSE))
-  })
-  
-  output$select.freq.clust.net<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    return(sliderInput('freq.clust.net',"Select frequency",min=0,max=100,dragRange=TRUE,value=c(0,100), ticks=TRUE))
-  })
-  
-  output$select.edge.width<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    return(sliderInput('edge.width',"Select edge width",min=0.1,max=2,dragRange=FALSE,value=2.5, ticks=TRUE,step=0.1))
-  })
-  
-  output$select.vertex.size<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    return(sliderInput('vertex.size',"Select node size",min=1,max=5,dragRange=FALSE,value=2.5, ticks=TRUE,step=0.1))
-  })
-  
-  output$select.arrow.size<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    return(sliderInput('arrow.size',"Select arrow size",min=0,max=2,dragRange=FALSE,value=0.5, ticks=TRUE,step=0.1))
-  })
-  
-  output$select.deg.ch<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    return(selectInput(inputId = 'deg.ch',label = "Select node size variable",choices = list('In degree'='in','Out degree'='out','Avg. Freq. of cited items'='meanFreq','Avg. nb. of items'='meanN'),selected = 'in'))
-  })
-  
-  output$select.e.curve<-renderUI({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    return(sliderInput('e.curve',"Select edge curve intensity",min=0,max=1,dragRange=FALSE,value=0, ticks=TRUE,step=0.1))
-  })
-  
-  output$show.clust.net<-renderPlot({
-    if(is.null(ls.categories()))
-      return(NULL)
-    if(length(ls.categories())==1)
-      return(NULL)
-    if(is.null(patch.flow.tab()))
-      return(NULL)
-    with.items1=FALSE
-    if(!is.null(input$with.items)) with.items1<-input$with.items
-
-    plot.clust.net(patch.flow.tab(),
-                   e.width.mult = input$edge.width,v.size.mult =input$vertex.size,arrow.size=input$arrow.size,
-                   ls.categories = ls.categories(),input$categ.for.netw,
-                   with.items1,deg.ch=input$deg.ch,e.curve=input$e.curve,freq=input$freq.clust.net,res.FL())
-  },height=800,width=800)
   
   #####################TabPanel(ITEM ANALYSIS)
                       ####TabsetPanel(ITEM CATEGORIES ANALYSES)

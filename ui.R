@@ -23,25 +23,6 @@
 
 shinyUI(
   navbarPage("FLARES - Free List Analysis under R Environment using Shiny",
-             
-  #####################################################################################################################
-  #####Presentation
-  #####################################################################################################################
-  
-    #tabPanel("Presentation",
-             #titlePanel("Free-Listing and FLARES"),
-             #sidebarLayout(
-               #sidebarPanel(
-                 #"Flares has been developed..."
-               #),
-               #mainPanel(
-                # tabsetPanel(type="tabs",
-                 #            tabPanel("Free-Listing"),
-                  #           tabPanel("Other")
-                 #)#End tabsetPanel
-               #)#End MainPanel
-             #)# End sidebarLayout
-             #),#End tabPanel 
   
   #####################################################################################################################
   #####UPLOAD
@@ -383,31 +364,6 @@ shinyUI(
                                                                 ),#end tabPanel
                                                        tabPanel("Item categories analysis",
                                                                 tabsetPanel(type="pills",
-                                                                            tabPanel("Patch Flow",
-                                                                                     br(),
-                                                                                     htmlOutput("patch.flow.mess1"),
-                                                                                     br(),
-                                                                                     fluidRow(
-                                                                                       column(6,htmlOutput("show.min.max")),
-                                                                                       column(6,htmlOutput("select.categ.for.netw"),
-                                                                                              htmlOutput("select.with.items"))
-                                                                                       ),#endfluidRow
-                                                                                     tags$hr(),
-                                                                                     fluidRow(
-                                                                                       column(3,
-                                                                                              br(),
-                                                                                              htmlOutput("select.deg.ch"),
-                                                                                              htmlOutput("select.freq.clust.net"),
-                                                                                              htmlOutput("select.edge.width"),
-                                                                                              htmlOutput("select.vertex.size"),
-                                                                                              htmlOutput("select.arrow.size"),
-                                                                                              htmlOutput("select.e.curve")
-                                                                                              
-                                                                                              ),
-                                                                                       column(9,plotOutput("show.clust.net"))
-                                                                                       )#end fluidRow
-                                                                                     
-                                                                                     ),#tabPanel
                                                                             tabPanel("Dichot. Bias",
                                                                                      br(),
                                                                                      htmlOutput("dichot.bias.mess1"),
