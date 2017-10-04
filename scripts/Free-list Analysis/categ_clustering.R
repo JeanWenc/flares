@@ -43,7 +43,7 @@ categ.clustering<-function(FL.list,norm.type,ls.categories, resp.var.data,tree.p
     FL.list[which(is.na(FL.list$tree.cut)),"tree.cut"]<-"k0"
     FL.list$tree.cut<-factor(FL.list$tree.cut)
   }else{
-    tree.part.col<-which(ls.categories=="tree_partition")
+    tree.part.col<-which(ls.categories=="tree.cut")
     if(length(tree.part.col)!=0) ls.categories<-ls.categories[-tree.part.col]
   }
   
@@ -54,6 +54,7 @@ categ.clustering<-function(FL.list,norm.type,ls.categories, resp.var.data,tree.p
   
   #Transforming "" into NA
   for(i in 1:length(ls.categories)){
+    FL.list[,ls.categories[i]]<-as.factor(FL.list[,ls.categories[i]])
     ls.lev<-which(levels(FL.list[,ls.categories[i]])=="")
     if(length(ls.lev)!=0){
       levels(FL.list[,ls.categories[i]])[ls.lev]<-NA
@@ -68,9 +69,9 @@ categ.clustering<-function(FL.list,norm.type,ls.categories, resp.var.data,tree.p
   if(length(bias.categ)!=0){
     for(i in 1:length(bias.categ)){
       if(i==1) {
-        column.names<-paste(bias.categ[i],sort(levels(FL.list[,bias.categ[i]])),sep="_")
+        column.names<-paste(bias.categ[i],as.character(sort(unique(FL.list[,bias.categ[i]]))),sep="_")
       }else{
-        column.names<-c(column.names,paste(bias.categ[i],sort(unique(FL.list[,bias.categ[i]])),sep="_"))
+        column.names<-c(column.names,paste(bias.categ[i],as.character(sort(unique(FL.list[,bias.categ[i]]))),sep="_"))
         }
     }
     bias.tab<-matrix(data=NA,nrow=length(ls.resp),ncol=length(column.names), dimnames=list(ls.resp,column.names))

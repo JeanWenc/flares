@@ -31,16 +31,13 @@ library(vegan)
 library(reshape2)
 library(DT)
 library(dendextend)
-library(igraph)
 library(data.table)
 library(ggplot2)
 library(ggdendro)
-library(ggnetwork)
-library(network)
-library(sna)
 library(RColorBrewer)
 library(reshape2)
 library(adegraphics)
+library(readr)
 
 source("../../scripts/Respondent/Data_Example_2.R")
 
@@ -126,10 +123,13 @@ norm.category.names2<-norm.category.names2[which(!norm.category.names2%in%norm.c
 
 #créer la liste de toutes les catégories
 apac.category.names2=apac.categories$apac.categ.names
-ls.categories=c("None",apac.category.names2)
+ls.categories=c("None")
 ls.categories=c("None","tree.cut")
-ls.categories=c("None",norm.category.names2,"tree.cut")
+ls.categories=c("None",apac.category.names2)
 ls.categories=c("None",apac.category.names2,"tree.cut")
+ls.categories=c("None",norm.category.names2)
+ls.categories=c("None",norm.category.names2,"tree.cut")
+ls.categories=c("None",apac.category.names2,norm.category.names2)
 ls.categories=c("None",apac.category.names2,norm.category.names2,"tree.cut")
 
 #analyses de clustering
@@ -142,21 +142,6 @@ if (resp.var.data[1,1]==""){
 }
 categ.clust<-categ.clustering(res1$FL.list,norm.type = norm.type2,ls.categories,resp.var.data1,tree.partition)
 
-#analyse patch flow
-source("../../scripts/Free-list Analysis/patch_flow.R")
-tree.partition<-"None"# or run plot_item_prox first
-min.max<-"min"#or "max"
-debug<-TRUE
-patch.flow1<-patch.flow(res1$FL.list,norm.type = norm.type2,ls.categories,resp.var.data,tree.partition,min.max,debug)
-
-#plot patch flow
-source("../../scripts/Free-list Analysis/plot_clust_net.R")
-categ.for.netw1="tree.cut"
-deg.ch='meanFreq'
-plot.clust.net(patch.flow1,
-               e.width.mult = 1,v.size.mult = 5,arrow.size=0.5,
-               ls.categories = ls.categories,categ.for.netw = categ.for.netw1,
-               with.items = FALSE,deg.ch,e.curve = 0.1,freq=c(0,100),res.FL)
 #######################Item by Item Proximity########################
 
 #Créer les matrices de proximité
