@@ -1348,7 +1348,7 @@ session$onSessionEnded(stopApp)
       resp.var.name1="No Variable"
       if(!is.null(resp.var.data())& is.data.frame(resp.var.data()))
         resp.var.name1=input$resp.var.name
-      plot.res.comp(res.resp(),resp.var.name1)
+      print(plot.res.comp(res.resp(),resp.var.name1))
       dev.off()
     }
   )
