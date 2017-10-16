@@ -23,11 +23,13 @@
 
 shinyUI(
   navbarPage("FLARES - Free List Analysis under R Environment using Shiny",
-  
+             
   #####################################################################################################################
   #####UPLOAD
   #####################################################################################################################
     tabPanel("Upload",
+             tags$head(HTML("<script async src='https://www.googletagmanager.com/gtag/js?id=UA-108158721-2'></script>")),
+             tags$head(includeScript("analytics/google-analytics.js")),
              tags$style(type="text/css",
                         ".shiny-output-error { visibility: hidden; }",
                         ".shiny-output-error:before { visibility: hidden; }"
