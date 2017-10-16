@@ -372,6 +372,10 @@ session$onSessionEnded(stopApp)
   ###################################################################################################################
   #####################TabPanel(UPLOAD)#####
                       ####SideBarPanel#####
+  
+  ###################################################################################################################
+  #####################TabPanel(UPLOAD)#####
+                      ####SideBarPanel#####
   output$check.header<-renderUI({
     if(input$input.format.choice=="APAC")
       checkboxInput("header",label="My data contains a header",value = TRUE)

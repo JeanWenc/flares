@@ -26,16 +26,27 @@ shinyUI(
   #####################################################################################################################
   #####Presentation
   #####################################################################################################################
-    tabPanel("Presentation",
-                      titlePanel("Free-Listing and FLARES"),
+    tabPanel("Introduction",
+                      titlePanel("Introduction"),
                       sidebarLayout(
                         sidebarPanel(
-                          "Flares has been developed..."
-                        ),
+                          "logos",
+                          br(),
+                          HTML(print(read_file("data/intro_flares.txt")))
+                          ),#end sidebarPanel
                         mainPanel(
                           tabsetPanel(type="tabs",
-                                      tabPanel("Free-Listing"),
-                                      tabPanel("Other")
+                                      tabPanel("Free-Listing & FLARES"
+                                               
+                                               ),#en tabPanel "Free-Listing"
+                                      tabPanel("Tips & User Guide"),
+                                      tabPanel("FLARES' users"),
+                                      tabPanel("About",
+                                               p("Version number"),
+                                               p("How to cite"),
+                                               p("Url to source-code"),
+                                               p("Licence text?")
+                                               )
                           )#End tabsetPanel
                         )#End MainPanel
                       )# End sidebarLayout

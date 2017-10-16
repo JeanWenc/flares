@@ -1,0 +1,6 @@
+﻿<b>FLARES is an open-source software for free-list analyses.</b><br/><br/>
+Are you about to run analyses for the first time?<br/>
+Are you analyzing a new dataset?<br/>
+If that is the case please let us know a little about yourself and your dataset by filling in the below form.<br/>
+<i style=font-size:80%;>N.B. Information you enter will be made public on the map shown in the "FLARES' users" tab. <b>None of the fields are required for form submission.</b></i>
+
