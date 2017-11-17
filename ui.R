@@ -20,9 +20,10 @@
 #along with FLARES.  If not, see <http://www.gnu.org/licenses/>.
 
 ########################################################################################################################
-
+library(rintrojs)
 shinyUI(
-  navbarPage("FLARES - Free List Analysis under R Environment using Shiny",
+  navbarPage("FLARES - Free List Analysis under R Environment using Shiny",selected = "Introduction",
+             introjsUI(),
   #####################################################################################################################
   #####Presentation
   #####################################################################################################################
@@ -31,8 +32,8 @@ shinyUI(
                       sidebarLayout(
                         sidebarPanel(
                           "logos",
-                          br(),
-                          HTML(print(read_file("data/intro_flares.txt")))
+                          br()#,
+                          #HTML(print(read.csv("data/intro_flares.txt")))
                           ),#end sidebarPanel
                         mainPanel(
                           tabsetPanel(type="tabs",
