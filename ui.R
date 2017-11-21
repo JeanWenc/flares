@@ -32,8 +32,11 @@ shinyUI(
                       sidebarLayout(
                         sidebarPanel(
                           "logos",
-                          br()#,
+                          br(),
                           #HTML(print(read.csv("data/intro_flares.txt")))
+                          textInput("user.email",label = "Please input your email address.",value="",placeholder = "john.doe@mymail.com"),
+                          htmlOutput("show.user.email"),
+                          textOutput("welcomeMess")
                           ),#end sidebarPanel
                         mainPanel(
                           tabsetPanel(type="tabs",
@@ -64,52 +67,57 @@ shinyUI(
              titlePanel("Upload file containing free lists"),
                           sidebarLayout(
                             sidebarPanel(
-                              selectInput("input.format.choice",
-                                          label="Select your file format",
-                                          choices = list("Lists by columns (FLAME)"="FLAME",
-                                                         "Spreadsheet format (AnthrTools)"="ATOOLS",
-                                                         "ANTHROPAC format"="APAC"),
-                                          selected="FLAME"
-                              ),#end selectInput
-                              #checkboxInput("apac.format.checkbox", label = "ANTHROPAC formatted file"),
-                              p("For the selected file format a data format example is provided on the right hand side of your screen."),
-                              fluidRow(
-                                column(2),
-                                column(10,htmlOutput("check.header"))#end column
-                              ),#end fluidRow
-                              fluidRow(
-                                column(2),
-                                column(10,htmlOutput("panel2.sidebar.text1"))
-                              ),#end fluidRow
-                              tags$hr(),
-                              htmlOutput("check.apac.item.categories"),
-                              htmlOutput("panel2.sidebar.text2"),
-                              tags$hr(),
-                              fileInput('Uploaded.file1','Choose your CSV file', 
-                                        accept=c('text/csv',
-                                                 'text/comma-seperated-values',
-                                                 'text/plain',
-                                                 '.csv')
-                                        ),#fileInput
-                              tags$hr(),
-                              fluidRow(
-                                column(6,
-                                       radioButtons('sep','Seperator',
-                                                    c(Semicolon=';',
-                                                      Comma=',',
-                                                      Tab='\t')
-                                                    )#radioButtons
-                                       ),#end column
-                                column(6,
-                                       radioButtons('quote','Quote',
-                                                    c(None='',
-                                                      'Double Quote'='"',
-                                                      'Single Quote'="'")
-                                                    )#radioButtons
-                                       )#end column
-                                )#end fluidrow
+                              #conditionalPanel("disable_UI_main",p("test")),
+                              #conditionalPanel("enable_UI_main",
+                                               
+                                selectInput("input.format.choice",
+                                            label="Select your file format",
+                                            choices = list("Lists by columns (FLAME)"="FLAME",
+                                                           "Spreadsheet format (AnthrTools)"="ATOOLS",
+                                                           "ANTHROPAC format"="APAC"),
+                                            selected="FLAME"
+                                ),#end selectInput
+                                #checkboxInput("apac.format.checkbox", label = "ANTHROPAC formatted file"),
+                                p("For the selected file format a data format example is provided on the right hand side of your screen."),
+                                fluidRow(
+                                  column(2),
+                                  column(10,htmlOutput("check.header"))#end column
+                                ),#end fluidRow
+                                fluidRow(
+                                  column(2),
+                                  column(10,htmlOutput("panel2.sidebar.text1"))
+                                ),#end fluidRow
+                                tags$hr(),
+                                htmlOutput("check.apac.item.categories"),
+                                htmlOutput("panel2.sidebar.text2"),
+                                tags$hr(),
+                                fileInput('Uploaded.file1','Choose your CSV file', 
+                                          accept=c('text/csv',
+                                                   'text/comma-seperated-values',
+                                                   'text/plain',
+                                                   '.csv')
+                                          ),#fileInput
+                                tags$hr(),
+                                fluidRow(
+                                  column(6,
+                                         radioButtons('sep','Seperator',
+                                                      c(Semicolon=';',
+                                                        Comma=',',
+                                                        Tab='\t')
+                                                      )#radioButtons
+                                         ),#end column
+                                  column(6,
+                                         radioButtons('quote','Quote',
+                                                      c(None='',
+                                                        'Double Quote'='"',
+                                                        'Single Quote'="'")
+                                                      )#radioButtons
+                                         )#end column
+                                  )#end fluidrow
+                                #)#endConditionalPanel
                               ),#sidebarPanel
                             mainPanel(
+                              #conditionalPanel("enable_UI_main",
                               tabsetPanel(type="tabs",
                                           tabPanel("Uploading data",
                                                    br(),
@@ -138,6 +146,7 @@ shinyUI(
                                                    DT::dataTableOutput("show.apac.categ.tab")
                                                    )#end tabPanel
                                           )#end tabsetPanel
+                              #)#endConditionalPanel
                               )#mainPanel
                             )#sidebarLayout
              ),#tabPanel

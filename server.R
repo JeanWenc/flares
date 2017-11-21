@@ -37,6 +37,7 @@ library(shiny)
 library(vegan)
 
 ############source functions####
+source("scripts/Users/check_email.R")
 
 source("scripts/Upload/check_fl_data.R")
 source("scripts/Upload/ANTHROPAC_format.R")
@@ -72,7 +73,10 @@ source("scripts/Respondent/Data_Example_2.R")
 shinyServer(function(input, output,session){
 
 session$onSessionEnded(stopApp)
-
+###############VALUES##############
+  values<-reactiveValues()
+  values$email.ok<-"None"
+  
 ###############REACTIVE DATA#######
   data=reactive({
     inFile<-input$Uploaded.file1
@@ -346,10 +350,18 @@ session$onSessionEnded(stopApp)
   })
   
 ###############CONDITIONS#####
+  #output$enable_UI_main<-reactive({
+  #  return(values$email.ok!="None")
+  #})
+  #outputOptions(output,'enable_UI_main',suspendWhenHidden=FALSE)
+  
+  #output$disable_UI_main<-reactive({
+  #  return(values$email.ok=="None")
+  #})
   
   output$enable_UI <- reactive({
-    if(!is.null(data()))
-      return(data()$check=="OK")
+      if(!is.null(data()))
+        return(data()$check=="OK")  
     })
   outputOptions(output, 'enable_UI', suspendWhenHidden=FALSE)
   
@@ -370,8 +382,24 @@ session$onSessionEnded(stopApp)
   
 ###############OUTPUTS######
   ###################################################################################################################
-  #####################TabPanel(UPLOAD)#####
+  #####################TabPanel(INTRO)#####
                       ####SideBarPanel#####
+  output$show.user.email<-renderUI({
+    if(input$user.email=="")#here you have to use a regex
+      return(NULL)
+    return(actionButton("add.user.email",label = "Submit"))
+  })
+  
+  observeEvent(input$add.user.email,{
+    temp.mess<-check.email(input$user.email)
+    values$email.ok<-temp.mess
+  })
+  
+  output$welcomeMess<-renderText({
+    if(values$email.ok=="None")
+      return(NULL)
+    return(values$email.ok)
+  })
   
   ###################################################################################################################
   #####################TabPanel(UPLOAD)#####
