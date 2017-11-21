@@ -79,6 +79,7 @@ session$onSessionEnded(stopApp)
   
 ###############REACTIVE DATA#######
   data=reactive({
+    
     inFile<-input$Uploaded.file1
     
     if(is.null(inFile))
