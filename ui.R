@@ -20,56 +20,31 @@
 #along with FLARES.  If not, see <http://www.gnu.org/licenses/>.
 
 ########################################################################################################################
-library(rintrojs)
+library(leaflet)
+
 shinyUI(
   navbarPage("FLARES - Free List Analysis under R Environment using Shiny",selected = "Introduction",
-             introjsUI(),
   #####################################################################################################################
-  #####Presentation
+  #####INTRODUCTION
   #####################################################################################################################
-    tabPanel("Introduction",
-                      titlePanel("Introduction"),
-                      sidebarLayout(
-                        sidebarPanel(
-                          "logos",
-                          br(),
-                          #HTML(print(read.csv("data/intro_flares.txt")))
-                          textInput("user.email",label = "Please input your email address.",value="",placeholder = "john.doe@mymail.com"),
-                          htmlOutput("show.user.email"),
-                          textOutput("welcomeMess")
-                          ),#end sidebarPanel
-                        mainPanel(
-                          tabsetPanel(type="tabs",
-                                      tabPanel("Free-Listing & FLARES"
-                                               
-                                               ),#en tabPanel "Free-Listing"
-                                      tabPanel("Tips & User Guide"),
-                                      tabPanel("FLARES' users"),
-                                      tabPanel("About",
-                                               p("Version number"),
-                                               p("How to cite"),
-                                               p("Url to source-code"),
-                                               p("Licence text?")
-                                               )
-                          )#End tabsetPanel
-                        )#End MainPanel
-                      )# End sidebarLayout
-             ),#End tabPanel  
+  source(file = "scripts/ui/tab_1_intro.R",local=TRUE)$value, 
+  
   #####################################################################################################################
   #####UPLOAD
   #####################################################################################################################
     tabPanel("Upload",
              tags$style(type="text/css",
                         ".shiny-output-error { visibility: hidden; }",
-                        ".shiny-output-error:before { visibility: hidden; }"
+                        ".shiny-output-error:before { visibility: hidden; }",
+                        ".divShadow {width:80%;margin:25px auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding:10px;}"
                         ),
              
              titlePanel("Upload file containing free lists"),
                           sidebarLayout(
                             sidebarPanel(
-                              #conditionalPanel("disable_UI_main",p("test")),
-                              #conditionalPanel("enable_UI_main",
-                                               
+                              conditionalPanel("!output.enable_UI_main",
+                                               HTML("<h4>To continue to use FLARES, please <b>submit</b> your email adddress in the <b>'Introduction'</b> sidepanel.</h4>")),
+                              conditionalPanel("output.enable_UI_main",               
                                 selectInput("input.format.choice",
                                             label="Select your file format",
                                             choices = list("Lists by columns (FLAME)"="FLAME",
@@ -114,10 +89,10 @@ shinyUI(
                                                       )#radioButtons
                                          )#end column
                                   )#end fluidrow
-                                #)#endConditionalPanel
+                                )#end condtionalPanel
                               ),#sidebarPanel
                             mainPanel(
-                              #conditionalPanel("enable_UI_main",
+                              conditionalPanel("output.enable_UI_main",
                               tabsetPanel(type="tabs",
                                           tabPanel("Uploading data",
                                                    br(),
@@ -146,7 +121,7 @@ shinyUI(
                                                    DT::dataTableOutput("show.apac.categ.tab")
                                                    )#end tabPanel
                                           )#end tabsetPanel
-                              #)#endConditionalPanel
+                              )#endConditionalPanel
                               )#mainPanel
                             )#sidebarLayout
              ),#tabPanel

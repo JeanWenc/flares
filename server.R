@@ -28,6 +28,7 @@ library(ca)
 library(dendextend)
 library(data.table)
 library(DT)
+library(leaflet)
 library(ggdendro)
 library(ggplot2)
 library(RColorBrewer)
@@ -76,9 +77,15 @@ session$onSessionEnded(stopApp)
 ###############VALUES##############
   values<-reactiveValues()
   values$email.ok<-"None"
+  values$click_lat<-0
+  values$click_long<-0
   
+  users.df<-read.csv2("data/users.csv")
 ###############REACTIVE DATA#######
   data=reactive({
+    
+    if(values$email.ok=="None")# introTab Added 26/11/2017
+      return(NULL)#introTab Added 26/11/2017
     
     inFile<-input$Uploaded.file1
     
@@ -351,14 +358,10 @@ session$onSessionEnded(stopApp)
   })
   
 ###############CONDITIONS#####
-  #output$enable_UI_main<-reactive({
-  #  return(values$email.ok!="None")
-  #})
-  #outputOptions(output,'enable_UI_main',suspendWhenHidden=FALSE)
-  
-  #output$disable_UI_main<-reactive({
-  #  return(values$email.ok=="None")
-  #})
+  output$enable_UI_main<-reactive({
+    return(values$email.ok!="None")
+  })
+  outputOptions(output,'enable_UI_main', suspendWhenHidden=FALSE)
   
   output$enable_UI <- reactive({
       if(!is.null(data()))
@@ -384,23 +387,7 @@ session$onSessionEnded(stopApp)
 ###############OUTPUTS######
   ###################################################################################################################
   #####################TabPanel(INTRO)#####
-                      ####SideBarPanel#####
-  output$show.user.email<-renderUI({
-    if(input$user.email=="")#here you have to use a regex
-      return(NULL)
-    return(actionButton("add.user.email",label = "Submit"))
-  })
-  
-  observeEvent(input$add.user.email,{
-    temp.mess<-check.email(input$user.email)
-    values$email.ok<-temp.mess
-  })
-  
-  output$welcomeMess<-renderText({
-    if(values$email.ok=="None")
-      return(NULL)
-    return(values$email.ok)
-  })
+  source(file = "scripts/server/srv_tab_1_intro.R",local=TRUE)$value
   
   ###################################################################################################################
   #####################TabPanel(UPLOAD)#####
@@ -619,7 +606,7 @@ session$onSessionEnded(stopApp)
       str<-"<b>The list shown below contains, in alphabetical order, all of the different cited items.</b><br/>"
       str<-c(str,"For normalization or categorization purposes you may download the list below (by clicking on the download button located below on the right-hand side of the table) and fill as many columns as you wish (each with a different header).<br/>")
       str<-c(str,"<em>This may be useful to correct mispellings, harmonize synonyms or even translate the items as typed-in in your original free-list datasheet.</em><br/><br/>")
-      str<-c(str,"You can either create columns for <b>normalization</b> (analyses will run on those normalized names) or for <b>categorization</b> (freelist analyses will not run on the categories but category clustering analyses will be made available).<br/><br/>")
+      str<-c(str,"You can either create columns for <b>normalization</b> (original items will be replaced by those from the normalization column of your choice) or for <b>categorization</b> (whether provided by respondents or defined by researcher, item categories are used for specific analyses regarding category preferential bias or category clustering within lists).<br/><br/>")
       str<-c(str,"<b>Do not modify content of the first column ('Cited Items').</b><br/><br/>")
       str<-c(str,"<i>Refer to the 'Data Format Example sub-tab to see how your file should be formatted.</i><br/><br/>")
     

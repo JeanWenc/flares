@@ -1,3 +1,8 @@
-"ID";"mail";"N_conn"
-"1";"jeanwencelius@gmail.com";"3"
-"2";"jeanwencelius@gmail.co";"1"
+"ID";"mail";"name";"instit";"dataset";"lat";"lng";"date";"country";"public"
+"1";"jeanwencelius@gmail.com";"Jean Wencélius";"London School of Economics";"Mammals";NA;NA;NA;"Cameroon";"TRUE"
+"2";"jeanwencelius@gmail.com";"";"";"Trees";NA;NA;NA;"Cameroon";"TRUE"
+"3";"jeanwencelius@gmail.com";"";"";"Crops";NA;NA;NA;"Cameroon";"TRUE"
+"4";"";"Tawanda Tarakini";"";"Waterbirds";NA;NA;NA;"Zimbabwe";"TRUE"
+"5";"";"Lessye de Moss";"";"";NA;NA;NA;"USA";"TRUE"
+"6";"jeanwencelius@gmail.com";"";"";"";NA;NA;NA;"2017_nov._27";NA
+"7";"jeanwencelius@gmail.com";"";"";"";"";NA;NA;"2017_nov._27";NA
