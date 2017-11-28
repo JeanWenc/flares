@@ -1,7 +1,8 @@
-ID;mail;name;instit;dataset;language;lat;lng;date;country;public
-1;jeanwencelius@gmail.com;Jean Wencélius;London School of Economics;Crops;Masa;10.0532392480677;15.5269775306806;2017_nov._28;Cameroon;TRUE
-2;jeanwencelius@gmail.com;Jean Wencélius;London School of Economics;Crops;Wina;10.1089452784081;15.2024688699748;2017_nov._28;Cameroon;TRUE
-3;tawandatizora@gmail.com;Tawanda Tarakini;University of Chinoyi Zimbabwe;Waterbirds;Nambya_Ndebele_Shona;-18.7555113659913;27.0791015541181;2017_nov._28;Zimbabwe;TRUE
-4;lessye@isp.com;Lessye Joy DeMoss;University of Alabama (Tuscaloosa);Good Life;English;33.1996259682964;-87.5659790122882;2017_nov._28;USA;TRUE
-5;aurore.rimlinger@agroparistech.fr;Aurore Rimlinger;AgroParisTech, France;Trees;French;4.17988172361125;10.7402341067791;2017_nov._28;Cameroon;TRUE
-6;MSarkis@clarku.edu;Marianne Sarkis;Clark University;;;;;2017_nov._28;;FALSE
+"ID";"mail";"name";"instit";"dataset";"language";"lat";"lng";"date";"country";"public"
+"1";"jeanwencelius@gmail.com";"Jean Wencélius";"London School of Economics";"Crops";"Masa";"10.0532392480677";"15.5269775306806";"2017_nov._28";"Cameroon";"TRUE"
+"2";"jeanwencelius@gmail.com";"Jean Wencélius";"London School of Economics";"Crops";"Wina";"10.1089452784081";"15.2024688699748";"2017_nov._28";"Cameroon";"TRUE"
+"3";"tawandatizora@gmail.com";"Tawanda Tarakini";"University of Chinoyi Zimbabwe";"Waterbirds";"Nambya_Ndebele_Shona";"-18.7555113659913";"27.0791015541181";"2017_nov._28";"Zimbabwe";"TRUE"
+"4";"lessye@isp.com";"Lessye Joy DeMoss";"University of Alabama (Tuscaloosa)";"Good Life";"English";"33.1996259682964";"-87.5659790122882";"2017_nov._28";"USA";"TRUE"
+"5";"aurore.rimlinger@agroparistech.fr";"Aurore Rimlinger";"AgroParisTech, France";"Trees";"French";"4.17988172361125";"10.7402341067791";"2017_nov._28";"Cameroon";"TRUE"
+"6";"MSarkis@clarku.edu";"Marianne Sarkis";"Clark University";"";"";"";"";"2017_nov._28";"";"FALSE"
+"7";"jeanwencelius@gmail.com";"";"";"";"";NA;NA;"2017_nov._28";"";""
