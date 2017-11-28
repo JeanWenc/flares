@@ -80,7 +80,7 @@ session$onSessionEnded(stopApp)
   values$click_lat<-0
   values$click_long<-0
   
-  users.df<-read.csv2("data/users.csv")
+  users.df<-read.csv2("data/users.csv",stringsAsFactors = F)
 ###############REACTIVE DATA#######
   data=reactive({
     
