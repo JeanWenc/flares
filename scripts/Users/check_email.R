@@ -28,7 +28,7 @@ check.email<-function(user.email,user.name,user.inst,user.dataset,user.language,
     lng<-NA
   }
   
-  user.temp<-read.csv2("data/users.csv",stringsAsFactors = F)
+  user.temp<-read.csv2("www/userDB/users.csv",stringsAsFactors = F)
   
   user.temp.row<-which(user.temp$mail==user.email)
   
@@ -40,7 +40,7 @@ check.email<-function(user.email,user.name,user.inst,user.dataset,user.language,
   
   user.temp[dim(user.temp)[1]+1,]<-c(dim(user.temp)[1]+1,user.email,user.name,user.inst,user.dataset,user.language,lat,lng,today,user.country,make.public)
   
-  write.csv2(user.temp,file = "data/users.csv",row.names = F)
+  write.csv2(user.temp,file = "www/userDB/users.csv",row.names = F)
   return(mess)
 }
 

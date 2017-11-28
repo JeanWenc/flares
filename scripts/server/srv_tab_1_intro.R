@@ -118,7 +118,7 @@ observeEvent(input$submit.button,{
   
   temp.mess<-check.email(input$user.email,user.name.temp,user.inst.temp,user.dataset.temp,user.language.temp,values$click_lat,values$click_long,user.country.temp,make.public.temp)
   values$email.ok<-temp.mess
-  users.df<-read.csv2("data/users.csv",stringsAsFactors = F)
+  users.df<-read.csv2("www/userDB/users.csv",stringsAsFactors = F)
 })
 
 output$map<-renderLeaflet({
