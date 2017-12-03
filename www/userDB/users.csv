@@ -1,8 +1,10 @@
-ID;mail;name;instit;dataset;language;lat;lng;date;country;public
-1;jeanwencelius@gmail.com;Jean Wencélius;London School of Economics;Crops;Masa;10.0532392480677;15.5269775306806;2017_nov._28;Cameroon;TRUE
-2;jeanwencelius@gmail.com;Jean Wencélius;London School of Economics;Crops;Wina;10.1089452784081;15.2024688699748;2017_nov._28;Cameroon;TRUE
-3;msarkis@clarku.edu;Marianne Sarkis;Clark University;Health;English;42.2651144583376;-71.806640625;2017_Nov_28;Worcester, MA;TRUE
-4;ldmoss@crimson.ua.edu;Lessye Joy DeMoss;University of Alabama, Tuscaloosa;A good life;English;33.1856055144995;-87.5048675620928;2017_Nov_28;Southern U.S.;TRUE
-5;bekezelanxumalo@yahoo.com;;;;;NA;NA;2017_Nov_29;;FALSE
-6;emilie.guitard@gmail.com;Emilie Guitard;IFRA Nigeria;Trees;Yoruba, English;7.37881018818294;3.91937255859375;2017_Nov_29;Ibadan, Oyo State, Nigeria;TRUE
-7;tawandatizora@gmail.com;Tawanda Tarakini;University of Chinoyi Zimbabwe;Waterbirds;Nambya_Ndebele_Shona;-18.7555113659913;27.0791015541181;2017_nov._28;Zimbabwe;TRUE
+"ID";"mail";"name";"instit";"dataset";"language";"lat";"lng";"date";"country";"public"
+"1";"jeanwencelius@gmail.com";"Jean Wencélius";"London School of Economics";"Crops";"Masa";"10.0532392480677";"15.5269775306806";"2017_nov._28";"Cameroon";"TRUE"
+"2";"jeanwencelius@gmail.com";"Jean Wencélius";"London School of Economics";"Crops";"Wina";"10.1089452784081";"15.2024688699748";"2017_nov._28";"Cameroon";"TRUE"
+"3";"msarkis@clarku.edu";"Marianne Sarkis";"Clark University";"Health";"English";"42.2651144583376";"-71.806640625";"2017_Nov_28";"Worcester, MA";"TRUE"
+"4";"ldmoss@crimson.ua.edu";"Lessye Joy DeMoss";"University of Alabama, Tuscaloosa";"A good life";"English";"33.1856055144995";"-87.5048675620928";"2017_Nov_28";"Southern U.S.";"TRUE"
+"5";"bekezelanxumalo@yahoo.com";"";"";"";"";NA;NA;"2017_Nov_29";"";"FALSE"
+"6";"emilie.guitard@gmail.com";"Emilie Guitard";"IFRA Nigeria";"Trees";"Yoruba, English";"7.37881018818294";"3.91937255859375";"2017_Nov_29";"Ibadan, Oyo State, Nigeria";"TRUE"
+"7";"tawandatizora@gmail.com";"Tawanda Tarakini";"University of Chinoyi Zimbabwe";"Waterbirds";"Nambya_Ndebele_Shona";"-18.7555113659913";"27.0791015541181";"2017_nov._28";"Zimbabwe";"TRUE"
+"8";"jeanwencelius@gmail.com";"";"";"";"";NA;NA;"2017_Dec_01";"";NA
+"9";"Jeanwencelius@gmail.com";"";"";"";"";NA;NA;"2017_Dec_02";"";"FALSE"
