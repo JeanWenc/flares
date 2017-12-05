@@ -79,11 +79,11 @@ tabPanel("Introduction",
                                           
                                           <div style='width:20%;'></div>
                                           <div style='width:20%;'>
-                                            <a href='http://www.fondationfyssen.fr/fr/' target='_blank'><img src='fyssen.png' width='100%'></a>
+                                            <a href='http://www.fondationfyssen.fr/fr/' target='_blank'><img src='fyssen.jpg' width='100%'></a>
                                           </div>
                                           <div style='width:20%;'></div>
                                           <div style='width:20%;'>
-                                            <a href='http://anr-piaf.org' target='_blank'><img src='piaf.jpg' width='100%'></a>
+                                            <a href='http://anr-piaf.org' target='_blank'><img src='piaf.png' width='100%'></a>
                                           </div>
                                           <div style='width:20%;'></div>
                                           
