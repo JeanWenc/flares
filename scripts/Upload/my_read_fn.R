@@ -25,7 +25,11 @@ myReadFn<-function(data,header1,sep1,quote1,SaF){
   
   data1<-read.csv(file=data,header=header1,sep=sep1,quote = quote1,comment.char ="*",na.strings = c("NA",""),stringsAsFactors = SaF)  
   
-  temp<-data1[1,1]
+  if(header1==FALSE){
+    temp<-data1[1,1] 
+  }else{
+    temp<-names(data1)[1]
+  }
   if(length(grep(pattern = "\u00EF",x = temp))>0){
     data1<-read.csv(file=data,header=header1,sep=sep1,quote = quote1,comment.char ="*",na.strings = c("NA",""),stringsAsFactors = SaF,fileEncoding = "UTF-8-BOM") 
   }else{

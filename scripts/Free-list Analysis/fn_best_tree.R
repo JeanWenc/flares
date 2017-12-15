@@ -22,7 +22,7 @@
 ########################################################################################################################
 
 best.cutree <- function(hc, min, max, loss=FALSE, graph=FALSE){
-  hc<-hc
+  
   max <- min(max, length(hc$height))
   inert.gain <- rev(hc$height)
   intra <- rev(cumsum(rev(inert.gain)))

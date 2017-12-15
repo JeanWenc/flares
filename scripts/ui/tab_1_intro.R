@@ -22,6 +22,16 @@
 ########################################################################################################################
 
 tabPanel("Introduction",
+         
+         tags$head(HTML("<script async src='https://www.googletagmanager.com/gtag/js?id=UA-108158721-2'></script>")),
+         tags$head(includeScript("analytics/google-analytics.js")),
+         tags$style(type="text/css",
+                    ".shiny-output-error { visibility: hidden; }",
+                    ".shiny-output-error:before { visibility: hidden; }",
+                    ".divShadow {width:80%;margin:25px auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding:10px;}",
+                    ".packColor {color:rgb(21,46,97);}"
+                    ),#end tags$style
+         
          titlePanel("Introduction"),
          
          sidebarLayout(
@@ -31,26 +41,24 @@ tabPanel("Introduction",
              HTML("<p><strong>Submitting your email address is required to continue.</strong></br><i>All other fields are optional.</i></p>"),
              br(),
              fluidRow(
-               column(8,textInput("user.email",label = HTML("<span style='color:red;'>*</span> Email address."),value="",placeholder = "john.doe@mymail.com")),
-               column(4,br(),htmlOutput("show.submit.button"))#end column
+               column(6,textInput("user.email",label = HTML("<span style='color:red;'>*</span> Email address."),value="",placeholder = "john.doe@mymail.com")),
+               column(6,htmlOutput("show.make.public"))
+               
                ),#end fluidRow
-             htmlOutput("show.make.public"),
-             tags$hr(),
-             htmlOutput("show.user.name"),
-             htmlOutput("show.user.inst"),
-             
-             fluidRow(
-               column(6,htmlOutput("show.user.dataset")),
-               column(6,htmlOutput("show.user.language"))
-             ),
-             htmlOutput("show.user.country"),
-             htmlOutput("show.map.text"),
-             leafletOutput("map")
-           ),#end sidebarPanel
-           
-           mainPanel(
-             
-             tabsetPanel(type="tabs",
+            htmlOutput("show.submit.button"),#end column 
+            tags$hr(),
+            htmlOutput("show.user.name"),
+            htmlOutput("show.user.inst"),
+            fluidRow(
+              column(6,htmlOutput("show.user.dataset")),
+              column(6,htmlOutput("show.user.language"))
+              ),#end fluidRow
+            htmlOutput("show.user.country"),
+            htmlOutput("show.map.text"),
+            leafletOutput("map")
+            ),#end sidebarPanel
+          mainPanel(
+            tabsetPanel(type="tabs",
 #########################FLARES########################################################                      
                          tabPanel("FLARES",
                                   br(),
