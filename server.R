@@ -391,4 +391,6 @@ session$onSessionEnded(stopApp)
   source(file="scripts/server/srv_tab_3_norm.R",local=TRUE)$value
   
   source(file="scripts/server/srv_tab_4_item_analyses.R",local=TRUE)$value
+  
+  source (file="scripts/server/srv_tab_5_resp_analyses.R",local=TRUE)$value
 })
