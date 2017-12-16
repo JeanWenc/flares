@@ -1,0 +1,100 @@
+Cited Items;Nom Français;Class_Jean;Like_cat1;Like_cat2
+abeille;abeille;Hymenoptera;aime;aime
+acarien;acarien;Chelicerata;neutre;NA
+anophele_aegyptis;anophele_aegyptis;Diptera;neutre;NA
+aoutat;aoutat;Chelicerata;aime pas;aime pas
+araignee;araignee;Chelicerata;aime pas;aime pas
+araignee eau;araignee_d'eau;Hemiptera;aime;aime
+araignee loup;araignee loup;Chelicerata;neutre;NA
+araignee_d'eau;araignee_d'eau;Hemiptera;aime;aime
+asticot;asticot;Etat;neutre;NA
+bete d'orage;bete_d_orage;Thysanoptera;aime pas;aime pas
+blatte;blatte;Blattaria;aime pas;aime pas
+bourdon;bourdon;Hymenoptera;neutre;NA
+bousier;bousier;Coleoptera;aime;aime
+cafard;cafard;Blattaria;aime pas;aime pas
+capricorne;capricorne;Coleoptera;neutre;NA
+carabe;carabe;Coleoptera;neutre;NA
+charançon;charançon;Coleoptera;neutre;NA
+chenille;chenille;Lepidoptera;aime;aime
+cigale;cigale;Hemiptera;aime;aime
+cloporte;cloporte;Crustacea;neutre;NA
+coccinelle;coccinelle;Coleoptera;aime;aime
+coleoptere;coleoptere;Coleoptera;neutre;NA
+cousin;cousin;Diptera;neutre;NA
+criquet;criquet;Orthoptera;aime;aime
+doryphore;doryphore;Coleoptera;neutre;NA
+drosophile;drosophile;Diptera;neutre;NA
+dytique;dytique;Coleoptera;neutre;NA
+ephemere;ephemere;Ephemeroptera;neutre;NA
+escargot;escargot;Mollusca;aime;aime
+faucheuse;faucheux;Chelicerata;aime;aime
+faucheux;faucheux;Chelicerata;aime;aime
+fourmi;fourmi;Hymenoptera;aime;aime
+fourmi rouge;fourmi_rouge;Hymenoptera;neutre;NA
+fourmi volante;fourmi_volante;Hymenoptera;aime pas;aime pas
+fourmi_noire;fourmi_noire;Hymenoptera;aime;aime
+fourmi_rouge;fourmi_rouge;Hymenoptera;neutre;NA
+frelon;frelon;Hymenoptera;aime pas;aime pas
+gendarme;gendarme;Hemiptera;aime;aime
+grillon;grillon;Orthoptera;aime;aime
+guepe;guepe;Hymenoptera;aime pas;aime pas
+hanneton;hanneton;Coleoptera;neutre;NA
+larve;larve;Etat;aime pas;aime pas
+larves;larve;Etat;aime pas;aime pas
+lepisme;lepisme;Zygentoma;neutre;NA
+lezard;lezard;Vertebrata;aime pas;aime pas
+libellule;libellule;Odonata;aime;aime
+limace;limace;Mollusca;aime pas;aime pas
+luciole;luciole;Coleoptera;aime;aime
+mante religieuse;mante_religieuse;Mantodea;aime;aime
+mante_religieuse;mante_religieuse;Mantodea;aime;aime
+mille_pattes;mille_pattes;Myriapoda;neutre;NA
+millepattes;mille_pattes;Myriapoda;neutre;NA
+mite;mite;Lepidoptera;aime pas;aime pas
+morpion;morpion;Phthiraptera;aime pas;aime pas
+mouche;mouche;Diptera;aime pas;aime pas
+mouche bleue;mouche_bleue;Diptera;aime pas;aime pas
+mouche tse tse;mouche_tse_tse;Diptera;aime pas;aime pas
+mouche_plate;mouche_plate;Diptera;neutre;NA
+mouche_tse_tse;mouche_tse_tse;Diptera;aime pas;aime pas
+moucheron;moucheron;Diptera;aime pas;aime pas
+moustique;moustique;Diptera;aime pas;aime pas
+moustique_du_chikungunya;moustique_du_chikungunya;Diptera;neutre;NA
+moustiquetigre;moustique_tigre;Diptera;neutre;NA
+mygale;mygale;Chelicerata;aime pas;aime pas
+oiseau mouche;oiseau_mouche;Vertebrata;aime;aime
+papillon;papillon;Lepidoptera;aime;aime
+papillon de nuit;papillon de nuit;Lepidoptera;aime;aime
+perce_oreille;perce_oreille;Dermaptera;aime pas;aime pas
+phalene;phalene;Lepidoptera;neutre;NA
+phasme;phasme;Phasmatodea;aime;aime
+pince oreille;perce_oreille;Dermaptera;aime pas;aime pas
+pompile;pompile;Hymenoptera;neutre;NA
+pou;pou;Phthiraptera;aime pas;aime pas
+puce;puce;Siphonaptera;aime pas;aime pas
+puce de sable;puce_des_sables;Siphonaptera;aime;aime
+puce_des_sables;puce_des_sables;Siphonaptera;aime;aime
+puceron;puceron;Hemiptera;aime pas;aime pas
+punaise;punaise;Hemiptera;aime pas;aime pas
+punaise de lit;punaise_des_lits;Hemiptera;aime pas;aime pas
+sangsue;sangsue;Annelida;neutre;NA
+sauterelle;sauterelle;Orthoptera;neutre;NA
+scarabee;scarabee;Coleoptera;aime;aime
+scolopendre;scolopendre;Myriapoda;neutre;NA
+scorpion;scorpion;Chelicerata;neutre;NA
+sphinx;sphinx;Lepidoptera;neutre;NA
+taon;taon;Diptera;aime pas;aime pas
+tarentule;tarentule;Chelicerata;neutre;NA
+termite;termite;Blattodea;aime pas;aime pas
+tique;tique;Chelicerata;aime pas;aime pas
+trypanosome;trypanosome;Euglenoza;neutre;NA
+ver;ver;Annelida;neutre;NA
+ver_a_soie;ver_a_soie;Lepidoptera;neutre;NA
+ver_de_terre;ver_de_terre;Annelida;aime;aime
+vermisseau;vermisseau;Annelida;neutre;NA
+vers de farine;ver_de_farine;Coleoptera;aime;aime
+vers de terre;ver_de_terre;Annelida;aime;aime
+vers luisant;ver_luisant;Coleoptera;aime;aime
+veuve noire;veuve_noire;Chelicerata;aime;aime
+veuve_noire;veuve_noire;Chelicerata;aime;aime
