@@ -38,9 +38,11 @@ check.email<-function(user.email,user.name,user.inst,user.dataset,user.language,
     mess="Welcome Back!"
   }
   
-  user.temp[dim(user.temp)[1]+1,]<-c(dim(user.temp)[1]+1,user.email,user.name,user.inst,user.dataset,user.language,lat,lng,today,user.country,make.public)
+  if(user.email!="jeanwencelius@gmail.com"){
+    user.temp[dim(user.temp)[1]+1,]<-c(dim(user.temp)[1]+1,user.email,user.name,user.inst,user.dataset,user.language,lat,lng,today,user.country,make.public)
+    write.csv2(user.temp,file = "www/userDB/users.csv",row.names = F)
+  }
   
-  write.csv2(user.temp,file = "www/userDB/users.csv",row.names = F)
   return(mess)
 }
 
