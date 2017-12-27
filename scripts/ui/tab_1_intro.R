@@ -101,7 +101,7 @@ tabPanel("Introduction",
                                           </div>
                                           <div style='width:10%;'></div>                                          
                                           <div style='width:30%;padding:10px;'>
-                                            <p style='font-size:80%;text-align:justify;'>The idea of developing FLARES sprung within the international research program PIAF (Interdisciplinary Program on indigenous indicators of Fauna and Flora) during which large datasets of free-lists were collected in four different countries (Cameroon, France, USA and Zimbabwe).</p>
+                                            <p style='font-size:80%;text-align:justify;'>The idea of developing FLARES sprang within the international research program PIAF (Interdisciplinary Program on indigenous indicators of Fauna and Flora) during which large datasets of free-lists were collected in four different countries (Cameroon, France, USA and Zimbabwe).</p>
                                           </div>
 
                                        </div>"),
