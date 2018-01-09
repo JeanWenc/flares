@@ -39,7 +39,7 @@ resp.prox.fn<-function(mat.cit.abs.pres,res.FL,freq,resp.var.data){
   mat.dist.resp=dist(t(mat.cit.abs.pres),method="binary")
   
   res.dispersion=as.data.frame("")
-  res.adonis=as.data.frame("")
+  res.adonis=data.frame(WARNING="None of your respondent variables present a homogenous intra-group dispersion across groups. Multivariate Analysis of Variance cannot be performed.")
   sum.res=as.data.frame("")
   
   if(resp.var.data[1,1]!=""){
@@ -102,20 +102,21 @@ resp.prox.fn<-function(mat.cit.abs.pres,res.FL,freq,resp.var.data){
     sum.res[resp.var.non.homogene-1,1]<-text1
     sum.res[resp.var.homogene-1,1]<-text2
     
-    res.adonis=adonis(as.formula(paste("dist.temp","~",paste(colnames(resp.var.data.temp)[resp.var.homogene],collapse="+"),sep="")),
-                      data=resp.var.data.temp,
-                      permutations=999)
-    
-    var.sign<-row.names(res.adonis$aov.tab)[which(res.adonis$aov.tab[,"Pr(>F)"]<0.05)]
-    
-    if(length(var.sign)!=0) sum.res[which(row.names(sum.res)%in%var.sign),1]<-text3
-    
-    res.adonis<-as.data.frame(res.adonis$aov.tab)
-    for(i in 2:6){
-      res.adonis[,i]<-round(res.adonis[,i],3)
-      res.adonis[which(is.na(res.adonis[,i])),i]<-""
+    if(length(resp.var.homogene)!=0){
+      res.adonis=adonis(as.formula(paste("dist.temp","~",paste(colnames(resp.var.data.temp)[resp.var.homogene],collapse="+"),sep="")),
+                        data=resp.var.data.temp,
+                        permutations=999)
+      
+      var.sign<-row.names(res.adonis$aov.tab)[which(res.adonis$aov.tab[,"Pr(>F)"]<0.05)]
+      
+      if(length(var.sign)!=0) sum.res[which(row.names(sum.res)%in%var.sign),1]<-text3
+      
+      res.adonis<-as.data.frame(res.adonis$aov.tab)
+      for(i in 2:6){
+        res.adonis[,i]<-round(res.adonis[,i],3)
+        res.adonis[which(is.na(res.adonis[,i])),i]<-""
+      }
     }
-    
   }
   
   if(resp.var.data[1,1]==""){
