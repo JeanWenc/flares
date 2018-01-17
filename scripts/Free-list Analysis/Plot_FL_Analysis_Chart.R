@@ -44,8 +44,8 @@ plot.fl.analysis.chart<-function(data,sal.index,sort.order,min.freq,max.freq,tex
   
   data2<-melt(data,id="ord")
   
-  sal.name<-c("Frequency of mention","Smith index","Sutrop index")
-  names(sal.name)<-c("freq.cit.rel","Smith.index","Sutrop.index")
+  sal.name<-c("Frequency of mention","Smith index","Sutrop index","B' score")
+  names(sal.name)<-c("freq.cit.rel","Smith.index","Sutrop.index", "B.score")
   levels(data2$variable)<-as.character(sal.name[levels(data2$variable)])
   
   ggplot(data=data2,aes(x=ord,y=value,colour=variable))+

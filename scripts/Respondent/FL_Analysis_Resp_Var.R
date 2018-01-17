@@ -72,9 +72,17 @@ FL.analysis.resp.var<-function(resp.var.data,mat.cit.abs.pres,mat.cit.rk,resp.va
       #Replacing NAs by 0
       FL.res.temp[which(is.na(FL.res.temp[,"Sutrop.index"])),c("mean.rank","Sutrop.index")]=0
       
+      #B Score
+      max.B.mat<-matrix(resp.list.len.temp,nrow=dim(mat.cit.rk.temp)[1],ncol=dim(mat.cit.rk.temp)[2],byrow=T)
+      B.mat<-(max.B.mat-mat.cit.rk.temp)/(max.B.mat-1)*mat.cit.abs.pres.temp
+      B.score<-(apply(as.data.frame(B.mat),1,sum)+FL.res.temp$freq.cit-1)/((2*nb.resp.temp)-1)
+      B.score[which(B.score<0)]<-0
+      
+      FL.res.temp$B.score<-round(B.score,4)
+      
       #Limiting number of columns
-      FL.res.temp=FL.res.temp[,c("freq.cit.rel","Smith.index","Sutrop.index")]
-      names(FL.res.temp)=c("Frequency","Smith","Sutrop")
+      FL.res.temp=FL.res.temp[,c("freq.cit.rel","Smith.index","Sutrop.index","B.score")]
+      names(FL.res.temp)=c("Frequency","Smith","Sutrop","B.score")
       
       #renaming columns
       names(FL.res.temp)=paste(resp.var.mod[i],names(FL.res.temp),sep=" ")

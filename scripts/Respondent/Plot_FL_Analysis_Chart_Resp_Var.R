@@ -49,8 +49,8 @@ plot.fl.analysis.chart.resp.var<-function(data,sal.index,freq,sort,item.freq,res
   
   data2<-melt(data,id="ord")
   
-  ls.sal.index<-c("Frequency of mention", "Smith index","Sutrop index")
-  names(ls.sal.index)<-c("Frequency","Smith","Sutrop")
+  ls.sal.index<-c("Frequency of mention", "Smith index","Sutrop index","B' score")
+  names(ls.sal.index)<-c("Frequency","Smith","Sutrop","B.score")
   tit<-paste("Cultural saliency by ",ls.sal.index[sal.index],sep="")
   subtit<-paste("The frequency of mention of the plotted items ranges from ",freq[1]," to ",freq[2],"%.",sep="")
   

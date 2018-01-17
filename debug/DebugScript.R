@@ -48,7 +48,7 @@ source("../scripts/Upload/my_read_fn.R")
 header1=T
 sep1=";"
 quote1=""
-data=myReadFn(data="APAC_With-Categs_With-Header.csv",header1,sep1,quote1,SaF=T)
+data=myReadFn(data="dummy/APAC_With-Categs_With-Header.csv",header1,sep1,quote1,SaF=T)
 #Which file format (APAC, FLAME or ATOOLS)
 apac1="APAC"#or FLAME or ATOOLS
 
@@ -62,7 +62,7 @@ go.norm1=F
 norm.type=2
 #OR
 #Reading normalisation/categorisation file
-norm.item.data=myReadFn("NORM_With-Categs.csv",header1 = T,sep1,quote1,SaF = T)
+norm.item.data=myReadFn("dummy/NORM_With-Categs.csv",header1 = T,sep1,quote1,SaF = T)
 go.norm1=T
 norm.type=names(norm.item.data)[3]#Choosing which column of the normalisation file will be used
 
@@ -76,7 +76,7 @@ res1=item.resp.mat(up.data,norm.item.data,go.norm=go.norm1,norm.type.col=norm.ty
 resp.var.data2=as.data.frame("")
 
 #If respondent file to be uploaded
-resp.var.data2=myReadFn(data="RESP_Without_hash.csv",header1=T,sep1,quote1,SaF=F)
+resp.var.data2=myReadFn(data="dummy/RESP_Without_hash.csv",header1=T,sep1,quote1,SaF=F)
 source("../scripts/Respondent/check_resp_var_data.R")
 resp.var.data<-check.resp.var.data(resp.var.data2,res1$mat.cit.abs.pres)
 
@@ -87,8 +87,8 @@ source("../scripts/Free-list Analysis/FL_Analysis.R")
 res.FL=FL.analysis(res1$mat.cit.abs.pres,res1$mat.cit.rk,res1$origListLength)
 
 #Graph des résultats FL
-salience.ind.checkbox2="freq.cit.rel" #"freq.cit.rel","Smith.index","Sutrop.index"
-sort2=2#0=Alpha;2=Freq.cit;5=Smith;6=Sutrop
+salience.ind.checkbox2="freq.cit.rel" #"freq.cit.rel","Smith.index","Sutrop.index","B.score"
+sort2=2#0=Alpha;2=Freq.cit;5=Smith;6=Sutrop;7=B.score
 text.size=8
 source("../scripts/Free-list Analysis/Plot_FL_Analysis_Chart.R")
 plot.fl.analysis.chart(res.FL,salience.ind.checkbox2,sort2,10,100,text.size)

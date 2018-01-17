@@ -52,12 +52,18 @@ FL.analysis<-function(mat.cit.abs.pres,mat.cit.rk,origListLength){
   #calcul smith index sans prendre en compte les  0
   FL.res$Smith.index=round(apply(apply(as.data.frame(mat.cit.rk),1,sindex)*t(as.data.frame(mat.cit.abs.pres)),2,sum)/nb.resp,4)
   #Sutrop Index
-  FL.res$Sutrop.index=round(FL.res$freq.cit/(nb.resp*FL.res$mean.rank),3)
+  FL.res$Sutrop.index=round(FL.res$freq.cit/(nb.resp*FL.res$mean.rank),4)
+  #B Score
+  max.B.mat<-matrix(apply(as.data.frame(mat.cit.rk),2,max),nrow=dim(mat.cit.rk)[1],ncol=dim(mat.cit.rk)[2],byrow=T)
+  B.mat<-(max.B.mat-mat.cit.rk)/(max.B.mat-1)*mat.cit.abs.pres
+  B.score<-(apply(as.data.frame(B.mat),1,sum)+FL.res$freq.cit-1)/((2*nb.resp)-1)
+  
+  FL.res$B.score<-round(B.score,4)
   
   FL.res$Cited_Items=rownames(FL.res)
   
   #Liste par ordre alphabÃ©tique
-  FL.res=FL.res[order(FL.res$Cited_Items,decreasing = FALSE),c(7,1,2,4,5,6)]  
+  FL.res=FL.res[order(FL.res$Cited_Items,decreasing = FALSE),c(8,1,2,4,5,6,7)]  
 
   rownames(FL.res)=seq(1:dim(FL.res)[1])
   

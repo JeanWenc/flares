@@ -80,7 +80,7 @@ output$fl.analysis.table<-DT::renderDataTable({
   if(is.null(res.FL()))
     return(NULL)
   res.FL1=res.FL()
-  colnames(res.FL1)=c("Cited_Items","Freq. of Mention","Rel. Freq. of Mention","Mean Rank of Citation","Smith Index","Sutrop Index")
+  colnames(res.FL1)=c("Cited_Items","Freq. of Mention","Rel. Freq. of Mention","Mean Rank of Citation","Smith Index","Sutrop Index","B' score")
   return(datatable(res.FL1,options=list(lengthMenu=list(c(10,20,-1),c('10','20','All')),
                                         pageLength=20)))
 })
