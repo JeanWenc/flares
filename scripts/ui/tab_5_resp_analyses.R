@@ -69,11 +69,14 @@ tabPanel("Respondent Analyses",
                  tabPanel("Upload",
                           br(),
                           htmlOutput("panel5.tab1.text1"),
-                          fluidRow(
-                            column(4,tableOutput("show.res.sum.resp.var")),
-                            column(2,htmlOutput("show.download.resp.sample.tab")),
-                            column(4,htmlOutput("show.csvtype7"))
-                          )#endFluidRow
+                          htmlOutput("show.csvtype7"),
+                          htmlOutput("show.download.resp.sample.tab"),
+                          br(),
+                          br(),
+                          tableOutput("show.res.sum.resp.var"),
+                          br()
+                          
+                          
                  ),#End tabPanel
 
 #####################################################################################################################
@@ -83,20 +86,11 @@ tabPanel("Respondent Analyses",
                             type="pills",
                             tabPanel("Table Results",
                                      br(),
-                                     strong("Download Respondent Results"),
-                                     br(),br(),
-                                     fluidRow(
-                                       column(2,
-                                              br(),
-                                              downloadButton('download.resp.anal.res.tab', 'Download')
-                                       ),#End column
-                                       column(2,
-                                              radioButtons('csvtype3','Choose CVS Format',
-                                                           c(Semicolon_Fr=2,
-                                                             Comma_US_UK=1)
-                                              )#radioButtons
-                                       )#End column
-                                     ),#End fluidRow
+                                     radioButtons('csvtype3','Downloard respondent competence results (table below)',
+                                                  c("Semicolon (FR)"=2,
+                                                    "Comma (ENG)"=1)),#radioButtons
+                                     downloadButton('download.resp.anal.res.tab','Download'),
+                                     br(),
                                      br(),
                                      DT::dataTableOutput("resp.anal.res.tab")
                             ),#tabPanel
@@ -163,40 +157,22 @@ tabPanel("Respondent Analyses",
                                                conditionalPanel('output.enable_UI4',
                                                                 HTML("<br/><b>The table below presents the results (for each respondent variables) of homogeneity of intra-group dispersion across groups.</b><br/>"),
                                                                 HTML("<i>Homogeneity of dispersion is verified only for variables that have a p-value <b>ABOVE</b> 0.05.</i><br/><br/>"),
-                                                                fluidRow(
-                                                                  column(7,tableOutput("show.disper.tab")),
-                                                                  column(2,
-                                                                         br(),
-                                                                         br(),
-                                                                         downloadButton('download.disper.tab', 'Download')
-                                                                  ),#endColumn
-                                                                  column(3,
-                                                                         br(),
-                                                                         radioButtons('csvtype8','Choose CVS Format',
-                                                                                      c(Semicolon_Fr=2,
-                                                                                        Comma_US_UK=1)
-                                                                         )#radioButtons
-                                                                  )#endColumn
-                                                                ),#endFluidRow
+                                                                radioButtons('csvtype8','Download results table (shown below)',
+                                                                             c('Semicolon (FR)'=2,
+                                                                               'Comma (ENG)'=1)),#radioButtons
+                                                                downloadButton('download.disper.tab', 'Download'),
+                                                                br(),br(),
+                                                                tableOutput("show.disper.tab"),
                                                                 HTML("<b>Only the variables for which homogeneity of dispersion is verified are used for the Mulivariate Analysis of Variance presented in the second table (below).</b>"),
                                                                 tags$hr(),
                                                                 HTML("<b>The table below presents the results of the Multivariate Analysis of Variance for each respondent variable presenting a homogeneous intra-group dispersion.</b><br/>"),
                                                                 HTML("<i>For the variables which have a p-value <b>BELOW</b> 0.05 variation across groups can be considered as significantly higher than variation among groups.</i><br/><br/>"),
-                                                                fluidRow(
-                                                                  column(7,tableOutput("show.adonis.tab")),
-                                                                  column(2,
-                                                                         br(),
-                                                                         br(),
-                                                                         downloadButton('download.adonis.tab', 'Download')
-                                                                  ),#endColumn
-                                                                  column(3,
-                                                                         br(),
-                                                                         radioButtons('csvtype9','Choose CVS Format',
-                                                                                      c(Semicolon_Fr=2,
-                                                                                        Comma_US_UK=1)
-                                                                         )#radioButtons
-                                                                  )#endColumn
-                                                                ),#endFluidRow
+                                                                radioButtons('csvtype9','Download results table (shown below)',
+                                                                             c("Semicolon (FR)"=2,
+                                                                               "Comma (ENG)"=1)),#radioButtons
+                                                                downloadButton('download.adonis.tab', 'Download'),
+                                                                br(),br(),
+                                                                tableOutput("show.adonis.tab"),
                                                                 HTML("For more details on these analyses, please refer to the 'Methods' sub-tab.<br/>"),
                                                                 br(),
                                                                 br()
@@ -254,20 +230,10 @@ tabPanel("Respondent Analyses",
                                      br(),
                                      htmlOutput("panel5.tab4a.text1"),
                                      conditionalPanel("output.enable_UI2",
-                                                      strong("Download Free-List Analysis with Respondent Variables"),
-                                                      br(),
-                                                      br(),
-                                                      fluidRow(column(2,
-                                                                      br(),
-                                                                      downloadButton('download.show.res.FL.resp.var', 'Download')
-                                                      ),#end column
-                                                      column(2,
-                                                             radioButtons('csvtype4','Choose CVS Format',
-                                                                          c(Semicolon_Fr=2,
-                                                                            Comma_US_UK=1)
-                                                             )#radioButtons
-                                                      )#end column
-                                                      ),#end fluidRow
+                                                      radioButtons('csvtype4','Download Free-List Analysis with Respondent Variables (table shown below)',
+                                                                   c("Semicolon (FR)"=2,
+                                                                     "Comma (ENG)"=1)),
+                                                      downloadButton('download.show.res.FL.resp.var', 'Download'),
                                                       br(),
                                                       br(),
                                                       DT::dataTableOutput("show.res.FL.resp.var"),

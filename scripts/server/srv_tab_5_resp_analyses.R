@@ -73,9 +73,9 @@ output$show.csvtype7<-renderUI({
     return(NULL)
   if(!is.data.frame(resp.var.data()))
     return(NULL)
-  return(radioButtons('csvtype7','Choose CVS Format',
-                      c("Semicolon (French)"=2,
-                        "Comma (English)"=1))
+  return(radioButtons('csvtype7','Download sample distribution table (shown below)',
+                      c("Semicolon (FR)"=2,
+                        "Comma (ENG)"=1))
   )
 })
 

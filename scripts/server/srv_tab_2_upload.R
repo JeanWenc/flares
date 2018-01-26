@@ -45,7 +45,7 @@ output$check.apac.item.categories<-renderUI({
 output$panel2.sidebar.text2<-renderUI({
   if(input$input.format.choice%in%c("APAC","ATOOLS"))
     HTML(paste("Check the above box only if you have - in the column or columns adjacent to the one containing the cited items - information concerning each of the cited items.",
-               "Please go to the 'Data Format Example' sub-tab for more details.",
+               "Please look at the example on the right side of the screen.",
                sep="<br/>"))
   #if(input$apac.format.checkbox==TRUE)
   #HTML(paste("Check the above box only if you have - in the column or columns adjacent to the one containing the cited items - information concerning each of the cited items.",
@@ -159,9 +159,9 @@ output$show.download.apac.categ.tab<-renderUI({
 
 output$show.csvtype6<-renderUI({
   if(!is.null(apac.categories()))
-    radioButtons('csvtype6','Choose CVS Format',
-                 c("Semicolon (French)"=2,
-                   "Comma (English)"=1))
+    radioButtons('csvtype6','Choose CSV Format',
+                 c("Semicolon (FR)"=2,
+                   "Comma (ENG)"=1))
 })
 
 output$download.apac.categ.tab<-downloadHandler(

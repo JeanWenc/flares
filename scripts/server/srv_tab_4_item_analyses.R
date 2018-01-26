@@ -45,7 +45,7 @@ output$show.csvtype.item.resp.mat<-renderUI({
     return(NULL)
   return(radioButtons('csvtype.item.resp.mat','Choose CVS Format',
                       c("Semicolon (FR)"=2,
-                        "Comma (UK/US)"=1),inline = T))
+                        "Comma (ENG)"=1),inline = T))
 })
 
 output$show.select.item.resp.matrix<-renderUI({
@@ -199,8 +199,8 @@ output$show.csvtype.tree.part<-renderUI({
     return(NULL)
   
   return(radioButtons('csvtype.tree.part','Choose CVS Format',
-                      c("Semicolon (French)"=2,
-                        "Comma (English)"=1)))
+                      c("Semicolon (FR)"=2,
+                        "Comma (ENG)"=1)))
 })
 
 output$download.tree.part<-downloadHandler(
@@ -319,9 +319,9 @@ output$show.csvtype.dichot.bias<-renderUI({
   if(length(categ.clust()$dichot_bias_categ)==0)
     return(NULL)
   
-  return(radioButtons('csvtype.dichot.bias','Choose CVS Format',
-                      c("Semicolon (French)"=2,
-                        "Comma (English)"=1)))
+  return(radioButtons('csvtype.dichot.bias','Download results table',
+                      c("Semicolon (FR)"=2,
+                        "Comma (ENG)"=1)))
 })
 
 output$download.dichot.bias<-downloadHandler(
@@ -337,7 +337,7 @@ output$dichot.bias.mess3<-renderUI({
     return(NULL)
   if(length(categ.clust()$dichot_bias_categ)==0)
     return(NULL)
-  return(HTML("You may download, by clicking on button below, the complete table containing dichotomous bias scores respondent by respondent."))
+  return(HTML("You may download, by clicking on the button to the right, the complete table containing dichotomous bias scores respondent by respondent."))
 })
 
 output$show.download.dichot.bias.tot<-renderUI({
@@ -355,9 +355,9 @@ output$show.csvtype.dichot.bias.tot<-renderUI({
   if(length(categ.clust()$dichot_bias_categ)==0)
     return(NULL)
   
-  return(radioButtons('csvtype.dichot.bias.tot','Choose CVS Format',
-                      c("Semicolon (French)"=2,
-                        "Comma (English)"=1)))
+  return(radioButtons('csvtype.dichot.bias.tot','Download full results table (for each respondent)',
+                      c("Semicolon (FR)"=2,
+                        "Comma (ENG)"=1)))
 })
 
 output$download.dichot.bias.tot<-downloadHandler(
@@ -455,9 +455,9 @@ output$show.csvtype.clustering<-renderUI({
   if(is.null(categ.clust()))
     return(NULL)
   
-  return(radioButtons('csvtype.clustering','Choose CVS Format',
-                      c("Semicolon (French)"=2,
-                        "Comma (English)"=1)))
+  return(radioButtons('csvtype.clustering','Download results table',
+                      c("Semicolon (FR)"=2,
+                        "Comma (ENG)"=1)))
 })
 
 output$download.clustering<-downloadHandler(
@@ -473,7 +473,7 @@ output$clustering.mess3<-renderUI({
     return(NULL)
   if(is.null(categ.clust()))
     return(NULL)
-  return(HTML("You may download, by clicking on button below, the complete table containing clustering scores respondent by respondent."))
+  return(HTML("You may download, by clicking on the button to the right, the complete table containing clustering scores respondent by respondent."))
 })
 
 output$show.download.clustering.tot<-renderUI({
@@ -491,9 +491,9 @@ output$show.csvtype.clustering.tot<-renderUI({
   if(is.null(categ.clust()))
     return(NULL)
   
-  return(radioButtons('csvtype.clustering.tot','Choose CVS Format',
-                      c("Semicolon (French)"=2,
-                        "Comma (English)"=1)))
+  return(radioButtons('csvtype.clustering.tot','Download full results table (for each respondent)',
+                      c("Semicolon (FR)"=2,
+                        "Comma (ENG)"=1)))
 })
 
 output$download.clustering.tot<-downloadHandler(

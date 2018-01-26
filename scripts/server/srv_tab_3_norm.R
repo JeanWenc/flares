@@ -55,8 +55,8 @@ output$show.download.show.cited.items.list<-renderUI({
 output$show.csvtype1<-renderUI({
   if(is.null(norm.item.data()))
     radioButtons('csvtype1','Choose CVS Format',
-                 c("Semicolon (French)"=2,
-                   "Comma (English)"=1))
+                 c("Semicolon (FR)"=2,
+                   "Comma (ENG)"=1))
 })
 
 output$download.show.cited.items.list<-downloadHandler(
@@ -186,8 +186,8 @@ output$show.csvtype5<-renderUI({
   if(!is.null(norm.categories()))
     if(names(norm.categories()[[1]])[1]!="OK")
       radioButtons('csvtype5','Choose CVS Format',
-                   c("Semicolon (French)"=2,
-                     "Comma (English)"=1))
+                   c("Semicolon (FR)"=2,
+                     "Comma (ENG)"=1))
 })
 
 output$download.pb.items.tab<-downloadHandler(

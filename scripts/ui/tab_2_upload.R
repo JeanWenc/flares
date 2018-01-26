@@ -92,11 +92,11 @@ tabPanel("Upload",
                                                    br(),
                                                    fluidRow(
                                                      column(6,htmlOutput("panel2.tab2.text1")),
-                                                     column(2,
+                                                     column(3,
                                                             br(),
                                                             htmlOutput("show.download.apac.categ.tab")
                                                      ),#end column
-                                                     column(4,
+                                                     column(3,
                                                             htmlOutput("show.csvtype6")
                                                      )#end column
                                                    ),#end fluidRow

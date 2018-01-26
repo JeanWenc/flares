@@ -32,18 +32,11 @@ tabPanel("Item Analyses",
                               htmlOutput("fl.analysis.sum"),
                               tags$hr(),
                               h4("Download Item-by-Resp Matrix"),
-                              fluidRow(
-                                column(8,
-                                       htmlOutput("show.select.item.resp.matrix"),
-                                       htmlOutput("show.csvtype.item.resp.mat")
-                                ),
-                                column(4,br(),br(),
-                                       htmlOutput("show.download.item.resp.matrix"))
-                                
-                              )
-                              
-             )#conditionalPanel
-           ),#SidebarPanel
+                              htmlOutput("show.select.item.resp.matrix"),
+                              htmlOutput("show.csvtype.item.resp.mat"),
+                              htmlOutput("show.download.item.resp.matrix")
+                              )#conditionalPanel
+             ),#SidebarPanel
            mainPanel(
              conditionalPanel("output.enable_UI",
                               tabsetPanel(type = "tabs",
@@ -56,15 +49,11 @@ tabPanel("Item Analyses",
                                                                         br(),
                                                                         h4("Download Free-List Results Table"),
                                                                         fluidRow(
-                                                                          column(2,
-                                                                                 br(),
-                                                                                 downloadButton('download.FL.results','Download')),
-                                                                          column(4,
-                                                                                 radioButtons('csvtype2','Choose CVS Format',
-                                                                                              c("Semicolon (French)"=2,
-                                                                                                "Comma (English)"=1))
-                                                                          )#end column
-                                                                        ),#end fluidRow
+                                                                          column(3,radioButtons('csvtype2','Choose CSV Format',
+                                                                                                c("Semicolon (FR)"=2,
+                                                                                                  "Comma (ENG)"=1))),
+                                                                          column(3,br(),downloadButton('download.FL.results','Download'))
+                                                                        ),
                                                                         br(),
                                                                         br(),
                                                                         DT::dataTableOutput('fl.analysis.table')
@@ -186,22 +175,23 @@ tabPanel("Item Analyses",
                                                                                  downloadButton("download.item.prox.mat","Download"),
                                                                                  radioButtons("csvtype.item.prox.mat",label =NULL,
                                                                                               c("Semicolon (FR)"=2,
-                                                                                                "Comma (UK/US)"=1),inline = T)
+                                                                                                "Comma (ENG)"=1),inline = T)
                                                                                  )#column
                                                                           ),#end fluidRow
                                                                         tags$hr(),
                                                                         htmlOutput("show.download.tree.part.text0"),
                                                                         br(),
                                                                         fluidRow(
-                                                                          column(4, htmlOutput("select.dendo.n")),
-                                                                          column(4,br(),htmlOutput("show.tree.partition")),
+                                                                          column(4, 
+                                                                                 htmlOutput("select.dendo.n"),
+                                                                                 htmlOutput("show.tree.partition")
+                                                                                 ),
+                                                                          
                                                                           column(4,
                                                                                  htmlOutput("show.download.tree.part.text1"),
                                                                                  br(),
-                                                                                 fluidRow(
-                                                                                   column(4,br(),htmlOutput("show.download.tree.part")),
-                                                                                   column(8,htmlOutput("show.csvtype.tree.part"))
-                                                                                   )#end fluidRow
+                                                                                 htmlOutput("show.csvtype.tree.part"),
+                                                                                 htmlOutput("show.download.tree.part")
                                                                                  )#end column
                                                                           ),#end fluidRow
                                                                         tags$hr(),
@@ -312,44 +302,40 @@ tabPanel("Item Analyses",
                                                                         htmlOutput("dichot.bias.mess1"),
                                                                         br(),
                                                                         fluidRow(
-                                                                          column(3,htmlOutput("select.categ.dichot")),
-                                                                          column(3,htmlOutput("select.resp.var.name.dichot")),
-                                                                          column(1),
-                                                                          column(2,br(),htmlOutput("show.download.dichot.bias")),
-                                                                          column(3,htmlOutput("show.csvtype.dichot.bias"))
-                                                                        ),#end fluidRow
+                                                                          column(4,htmlOutput("select.categ.dichot")),
+                                                                          column(4,htmlOutput("select.resp.var.name.dichot")),
+                                                                          column(4,htmlOutput("show.csvtype.dichot.bias"),htmlOutput("show.download.dichot.bias"),br())
+                                                                          ),#end fluidRow
                                                                         br(),
                                                                         tableOutput("show.dichot.bias"),
                                                                         htmlOutput("dichot.bias.mess2"),
                                                                         tags$hr(),
-                                                                        htmlOutput("dichot.bias.mess3"),
-                                                                        br(),
                                                                         fluidRow(
-                                                                          column(2,br(),htmlOutput("show.download.dichot.bias.tot")),
-                                                                          column(3,htmlOutput("show.csvtype.dichot.bias.tot"))
-                                                                        )#end fluidRow
+                                                                          column(4,htmlOutput("dichot.bias.mess3")),
+                                                                          column(4,htmlOutput("show.csvtype.dichot.bias.tot"),
+                                                                                 htmlOutput("show.download.dichot.bias.tot"))
+                                                                        ),#end fluidRow
+                                                                        br()
                                                                ),#end tabPanel
                                                                tabPanel("Clustering",
                                                                         br(),
                                                                         htmlOutput("clustering.mess1"),
                                                                         br(),
                                                                         fluidRow(
-                                                                          column(3,htmlOutput("select.categ.clust")),
-                                                                          column(3,htmlOutput("select.resp.var.name.clust")),
-                                                                          column(1),
-                                                                          column(2,br(),htmlOutput("show.download.clustering")),
-                                                                          column(3,htmlOutput("show.csvtype.clustering"))
+                                                                          column(4,htmlOutput("select.categ.clust")),
+                                                                          column(4,htmlOutput("select.resp.var.name.clust")),
+                                                                          column(4,htmlOutput("show.csvtype.clustering"),htmlOutput("show.download.clustering"),br())
                                                                         ),#end fluidRow
                                                                         br(),
                                                                         tableOutput("show.clustering"),
                                                                         htmlOutput("clustering.mess2"),
                                                                         tags$hr(),
-                                                                        htmlOutput("clustering.mess3"),
-                                                                        br(),
                                                                         fluidRow(
-                                                                          column(2,br(),htmlOutput("show.download.clustering.tot")),
-                                                                          column(3,htmlOutput("show.csvtype.clustering.tot"))
-                                                                        )#end fluidRow
+                                                                          column(4,htmlOutput("clustering.mess3")),
+                                                                          column(4,htmlOutput("show.csvtype.clustering.tot"),
+                                                                                 htmlOutput("show.download.clustering.tot"))
+                                                                        ),#end fluidRow
+                                                                        br()
                                                                ),#end TabPanel
                                                                tabPanel("Methods",
                                                                         br(),
